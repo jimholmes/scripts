@@ -1,0 +1,9 @@
+Windows Registry Editor Version 5.00
+[HKEY_CLASSES_ROOT\Directory\shell\OpenWithGitBash]
+@="Open with Git Bash"
+[HKEY_CLASSES_ROOT\Directory\shell\OpenWithGitBash\command]
+@="\"wscript\" \"C:\\Program Files (x86)\\Git\\Git Bash.vbs\" \"%1\""
+[HKEY_CLASSES_ROOT\Directory\shell\OpenWithGitGUI]
+@="Open with Git GUI"
+[HKEY_CLASSES_ROOT\Directory\shell\OpenWithGitGUI\command]
+@="\"C:\\Program Files (x86)\\Git\\bin\\wish.exe\" \"C:\\Program Files (x86)\\Git\\libexec\\git-core\\git-gui\" \"--working-dir\" \"%1\""
