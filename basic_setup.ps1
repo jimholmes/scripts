@@ -65,9 +65,29 @@ Function Set-Explorer-Options
 	Stop-Process -processname explorer
 }
 
-# Set Windows Explorer options first
+Function Set-Server-Config-Options
+{
+	if ( -Not (Test-Path 'registry::HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows NT\Reliability'))
+	{
+		New-Item -Path 'registry::HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows NT' -Name Reliability -Force
+	}
+	Set-ItemProperty -Path 'registry::HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows NT\Reliability' -Name ShutdownReasonOn -Value 0
+  
+}
+function Disable-InternetExplorerESC {
+    $AdminKey = "HKLM:\SOFTWARE\Microsoft\Active Setup\Installed Components\{A509B1A7-37EF-4b3f-8CFC-4F3A74704073}"
+    $UserKey = "HKLM:\SOFTWARE\Microsoft\Active Setup\Installed Components\{A509B1A8-37EF-4b3f-8CFC-4F3A74704073}"
+    Set-ItemProperty -Path $AdminKey -Name "IsInstalled" -Value 0
+    Set-ItemProperty -Path $UserKey -Name "IsInstalled" -Value 0
+    Stop-Process -Name Explorer
+    Write-Host "IE Enhanced Security Configuration (ESC) has been disabled." -ForegroundColor Green
+}
 
+
+
+Set-ServerConfig-Options
 Set-Explorer-Options
+Disable-InternetExplorerESC
 
 # Install Chocolatey
 Execute "iex ((new-object net.webclient).DownloadString('https://chocolatey.org/install.ps1'))"
@@ -106,7 +126,8 @@ choco install fiddler
 choco install slickrun
 choco install zoomit
 choco install autohotkey
-choco install gvim
+choco install vim
+choco install poweriso
 # Removed because package doesn't always function.
 # cinst evernote
 
