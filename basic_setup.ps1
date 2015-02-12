@@ -118,7 +118,7 @@ git config --global mergetool.bc3.trustExitCode false
 # Now back to Chocolatey
 choco install TimRayburn.GitAliases
 choco install ruby
-choco install ruby.devkit
+choco install ruby2.devkit
 choco install beyondcompare
 choco install 7zip
 choco install sysinternals
