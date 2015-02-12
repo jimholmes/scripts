@@ -144,6 +144,7 @@ choco WindowsFeatures IIS-ASPNET45
 choco WindowsFeatures WCF-Services45
 choco WindowsFeatures WCF-TCP-PortSharing45
 choco windowsfeatures IIS-WebServerManagementTools
+choco windowsfeatures IIS-StaticContent
 
 # Add Visual Studio 2012 - Removed because packge does not do what you'd expect.
 # cinst VisualStudio2012Ultimate
