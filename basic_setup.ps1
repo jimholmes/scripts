@@ -128,9 +128,7 @@ choco install zoomit
 choco install autohotkey
 choco install vim
 choco install poweriso
-# Removed because package doesn't always function.
-# cinst evernote
-
+choco install markdownpad2
 choco install Git-TF
 
 # Windows Features
