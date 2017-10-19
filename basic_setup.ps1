@@ -90,11 +90,12 @@ Set-Explorer-Options
 Disable-InternetExplorerESC
 
 # Install Chocolatey
-Execute "iex ((new-object net.webclient).DownloadString('https://chocolatey.org/install.ps1'))"
-sc Env:\Path "$(gc Env:\Path);$(gc Env:\SystemDrive)\chocolatey\bin"
+iex ((new-object net.webclient).DownloadString('https://chocolatey.org/install.ps1'))
+# Update envs as needed
+RefreshEnv
 
 # Install PSGet
-Execute "(new-object Net.WebClient).DownloadString('http://psget.net/GetPsGet.ps1') | iex"
+iex (new-object Net.WebClient).DownloadString('http://psget.net/GetPsGet.ps1')
 
 # Get PowerShell modules
 Import-Module PSGet
@@ -102,18 +103,14 @@ Install-Module Pester
 Install-Module Pscx
 Install-Module Psake
 
-# .NET Framework
-cwindowsfeatures NetFx3
-
 # Chocolatey Packages
 cinst poshgit
+RefreshEnv
 
 # setup GIT with my info
 git config --global user.name 'Jim Holmes'
-git config --global user.email 'frazzleddad@gmail.com'
-git config --global mergetool.bc3.cmd "`'C:/Program Files (x86)/Beyond Compare 3/BComp.com`' \`"`$PWD/`$LOCAL\`" \`"`$PWD/`$REMOTE\`" \`"`$PWD/`$BASE\`" \`"`$PWD/`$MERGED\`""
-git config --global mergetool.bc3.keepBackup false
-git config --global mergetool.bc3.trustExitCode false
+git config --global user.email 'jim@GuidepostSystems.com'
+
 
 # Now back to Chocolatey
 choco install TimRayburn.GitAliases
