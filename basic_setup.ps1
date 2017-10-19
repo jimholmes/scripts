@@ -85,7 +85,7 @@ function Disable-InternetExplorerESC {
 
 
 
-Set-ServerConfig-Options
+Set-Server-Config-Options
 Set-Explorer-Options
 Disable-InternetExplorerESC
 
