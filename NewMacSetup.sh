@@ -17,22 +17,24 @@ PACKAGES=(
     git
     gh
     zsh
-	cmake
+    cmake
+    pandoc
 )
 echo "Installing packages..."
 brew install ${PACKAGES[@]}
 
 echo "Installing cask..."
 CASKS=(
+    brave-browser
     iterm2
     macvim
     adobe-acrobat-reader
     visual-studio-code
     evernote
     macdown
-	todoist
-	eqmac
-	spotify
+    todoist
+    eqmac
+    spotify
 )
 echo "Installing cask apps..."
 brew install --cask ${CASKS[@]}
