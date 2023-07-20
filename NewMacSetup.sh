@@ -25,6 +25,7 @@ brew install ${PACKAGES[@]}
 
 echo "Installing cask..."
 CASKS=(
+    alfred
     brave-browser
     iterm2
     macvim
